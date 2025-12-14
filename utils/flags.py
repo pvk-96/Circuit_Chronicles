@@ -1,0 +1,26 @@
+FLAG_MAP = {
+    "Bahrain": "🇧🇭",
+    "Saudi Arabia": "🇸🇦",
+    "Australia": "🇦🇺",
+    "Azerbaijan": "🇦🇿",
+    "Canada": "🇨🇦",
+    "Austria": "🇦🇹",
+    "France": "🇫🇷",
+    "Great Britain": "🇬🇧",
+    "Hungary": "🇭🇺",
+    "Belgium": "🇧🇪",
+    "Netherlands": "🇳🇱",
+    "Italy": "🇮🇹",
+    "Singapore": "🇸🇬",
+    "Japan": "🇯🇵",
+    "USA": "🇺🇸",
+    "Mexico": "🇲🇽",
+    "Brazil": "🇧🇷",
+    "UAE": "🇦🇪",
+    "Qatar": "🇶🇦",
+    "Spain": "🇪🇸",
+    "Monaco": "🇲🇨",
+    "China": "🇨🇳",
+    "South Africa": "🇿🇦",  # In case F1 returns someday ;)
+}
+

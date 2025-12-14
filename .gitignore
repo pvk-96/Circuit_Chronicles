@@ -1,0 +1,94 @@
+# -----------------------------
+# PYTHON
+# -----------------------------
+__pycache__/
+*.py[cod]
+*.so
+*.pyo
+*.pyd
+*.pdb
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Byte-compiled or optimized files
+*.pyc
+*.pyd
+*.pyo
+*.pyd
+*.pkl
+
+
+# -----------------------------
+# STREAMLIT
+# -----------------------------
+.streamlit/secrets.toml
+.streamlit/.lock
+.streamlit/config.backup.toml
+
+
+# -----------------------------
+# FASTF1 CACHE
+# -----------------------------
+cache/
+.fastf1_cache/
+*.ffdata
+
+
+# -----------------------------
+# PROJECT ASSETS / GENERATED
+# -----------------------------
+assets/temp/
+assets/generated/
+assets/*.tmp
+
+# Large files
+*.mp4
+*.mov
+*.avi
+*.zip
+*.tar
+*.gz
+
+
+# -----------------------------
+# OS JUNK
+# -----------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# -----------------------------
+# LOGS
+# -----------------------------
+*.log
+
+
+# -----------------------------
+# IDE & EDITOR
+# -----------------------------
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+
+# -----------------------------
+# TEST FILES
+# -----------------------------
+test/
+tests/

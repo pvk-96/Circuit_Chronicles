@@ -1,0 +1,175 @@
+/* ------------------------ */
+/* GLOBAL STYLES            */
+/* ------------------------ */
+
+html, body {
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Header */
+.app-header {
+    text-align: center;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.app-logo {
+    width: 120px;
+    opacity: 0.95;
+}
+
+.app-header h1 {
+    font-size: 2.8rem;
+    margin: 8px 0 0 0;
+    letter-spacing: 1px;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: #1EA7FF;
+    margin-top: -5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Panels (Cards) */
+.panel {
+    background: #111418;
+    padding: 18px 22px;
+    border-radius: 16px;
+    border: 1px solid rgba(30, 167, 255, 0.15);
+    margin-bottom: 25px;
+    transition: all 0.25s ease-in-out;
+}
+
+.panel:hover {
+    border-color: rgba(30, 167, 255, 0.4);
+    box-shadow: 0 0 12px rgba(30, 167, 255, 0.25);
+}
+
+/* Section titles */
+.section-title {
+    font-size: 1.5rem;
+    color: #1EA7FF;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+    color: gray;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* DataFrame */
+[data-testid="stDataFrame"] {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Selectbox fix */
+.stSelectbox label {
+    color: #1EA7FF !important;
+}
+
+/* Sidebar */
+.sidebar .sidebar-content {
+    background: #0D0D0D !important;
+}
+/* Loader Animation */
+.loader-container {
+    text-align: center;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(30, 167, 255, 0.2);
+    border-top-color: #1EA7FF;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto;
+}
+
+.loader-text {
+    margin-top: 12px;
+    color: #1EA7FF;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* Custom Loading Spinner */
+.loader-container {
+    text-align: center;
+    padding: 25px;
+    margin-top: 20px;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(30, 167, 255, 0.2);
+    border-top-color: #1EA7FF;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto;
+}
+
+.loader-text {
+    margin-top: 10px;
+    color: #1EA7FF;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+/* CAR LOADER */
+.car-loader-container {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.car-track {
+    width: 100%;
+    max-width: 300px;
+    height: 40px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.car {
+    position: absolute;
+    font-size: 2rem;
+    animation: car-move 1.2s linear infinite;
+}
+
+@keyframes car-move {
+    0% { left: -40px; }
+    100% { left: 100%; }
+}
+
+.car-loader-text {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #1EA7FF;
+    letter-spacing: 1px;
+}
+
