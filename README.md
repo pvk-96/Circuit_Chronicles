@@ -166,6 +166,8 @@ Free for personal and commercial use.
 
 <p align="center">
   Made with ❤️, FastF1, and way too much coffee.
+  Please contact me if you have any future collaborations: praneethvarmakopperla@gmail.com
+  
 </p>
-```
+
 
