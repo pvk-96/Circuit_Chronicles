@@ -1,6 +1,5 @@
-
 #Please Do-not Change anything
-#I do not know how it is working and removing even one line might break this again.
+#I do not know how it is working and removing even one line might break this again
 import streamlit as st
 import fastf1
 
@@ -16,17 +15,28 @@ from components.position_evolution import show_position_evolution
 from components.gp_selector import select_grand_prix
 from components.battle_gap import show_battle_gap
 from components.overtake_detector import show_overtake_detector
+from components.svg_loader import show_svg_loader
+from utils.images import image_to_base64
+
 
 # Load custom CSS
 with open("assets/style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # Logo
-st.markdown("<img src='assets/logo.png' class='logo-center'>", unsafe_allow_html=True)
+#st.markdown("<img src='assets/logo.png' class='logo-center'>", unsafe_allow_html=True)
+
+logo_b64 = image_to_base64("assets/logo.jpg")
+
+st.markdown(f"""
+<img src="{logo_b64}" class="logo-center"> 
+""", unsafe_allow_html=True)
 
 with st.sidebar:
+    logo_b64 = image_to_base64("assets/logo.jpg")
+    st.markdown(f"<img src='{logo_b64}' class='logo-center'>", unsafe_allow_html=True)
     st.markdown("""
-    ### Circuit Chronicles  
+    **Circuit Chronicles**
     **F1 Data Analysis Suite**
     
     Explore sessions, laps, telemetry, battles, and overtakes.
@@ -43,8 +53,6 @@ enable_cache()
 
 st.markdown("""
 <div class='app-header'>
-    <img src='assets/logo.png' class='app-logo'>
-    <h1>Circuit Chronicles</h1>
     <p class='tagline'>Precision Motorsport Analytics</p>
 </div>
 """, unsafe_allow_html=True)
@@ -112,6 +120,4 @@ show_lap_time_chart(session)
 show_position_evolution(session)
 show_battle_gap(laps)
 show_overtake_detector(session)
-
-
 

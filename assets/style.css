@@ -162,8 +162,8 @@ html, body {
 }
 
 @keyframes car-move {
-    0% { left: -40px; }
-    100% { left: 100%; }
+    0% { left: 250px; }
+    100% { left: -40%; }
 }
 
 .car-loader-text {
@@ -173,3 +173,44 @@ html, body {
     letter-spacing: 1px;
 }
 
+/* ============================= */
+/* SVG F1 LOADER (DARK MODE)     */
+/* ============================= */
+/*
+.svg-loader-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.svg-loader {
+    padding: 20px;
+}
+
+.logo {
+    fill: none;
+    stroke: #1EA7FF;              /* Electric blue *//*
+    stroke-width: 2;
+    stroke-dasharray: 20px;
+    animation: svg-load 8s linear infinite;
+}
+
+@keyframes svg-load {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 200;
+    }
+}
+
+.svg-loader-text {
+    margin-top: 12px;
+    font-size: 1.1rem;
+    color: #1EA7FF;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+*/

@@ -1,48 +1,69 @@
 import streamlit as st
 import plotly.graph_objects as go
-
+import numpy as np
 
 def show_track_map(session, laps):
-    st.markdown("<div class='section-title'>Track Map</div>", unsafe_allow_html=True)
-    st.markdown("<div class='panel'>", unsafe_allow_html=True)
+    st.markdown("<div class='section-title'>Track Layout</div>", unsafe_allow_html=True)
 
-    # Try to extract telemetry from one lap
-    try:
-        driver = laps["Driver"].iloc[0]
-        lap = laps.pick_drivers(driver).iloc[0]
-        tel = lap.get_telemetry().sort_values("Distance")
+    # Pick fastest lap for layout
+    fastest_lap = laps.pick_fastest()
+    telemetry = fastest_lap.get_telemetry().dropna()
 
-        x = tel["X"]
-        y = tel["Y"]
+    x = telemetry["X"].to_numpy()
+    y = telemetry["Y"].to_numpy()
+    dist = telemetry["Distance"].to_numpy()
 
-    except Exception as e:
-        st.error(f"Track map unavailable: {e}")
-        st.markdown("</div>", unsafe_allow_html=True)
+    if len(x) == 0:
+        st.warning("Track data unavailable for this session.")
         return
 
-    # Create the simple track outline
+    # Normalize distance (0 → 1)
+    dist_norm = (dist - dist.min()) / (dist.max() - dist.min())
+
+    # 3 equal segments (~33% each)
+    seg1 = dist_norm <= 0.33
+    seg2 = (dist_norm > 0.33) & (dist_norm <= 0.66)
+    seg3 = dist_norm > 0.66
+
     fig = go.Figure()
 
+    # RED section
     fig.add_trace(go.Scatter(
-        x=x,
-        y=y,
+        x=x[seg1],
+        y=y[seg1],
         mode="lines",
-        line=dict(color="#1EA7FF", width=3),
-        name="Circuit Layout"
+        line=dict(color="#E53935", width=4),
+        name="Sector 1"
     ))
 
-    # Style
+    # YELLOW section
+    fig.add_trace(go.Scatter(
+        x=x[seg2],
+        y=y[seg2],
+        mode="lines",
+        line=dict(color="#FDD835", width=4),
+        name="Sector 2"
+    ))
+
+    # BLUE section
+    fig.add_trace(go.Scatter(
+        x=x[seg3],
+        y=y[seg3],
+        mode="lines",
+        line=dict(color="#1E88E5", width=4),
+        name="Sector 3"
+    ))
+
     fig.update_layout(
-        height=600,
-        plot_bgcolor="#0D0D0D",
-        paper_bgcolor="#0D0D0D",
-        font=dict(color="#F2F2F2"),
-        margin=dict(l=20, r=20, t=20, b=20),
+        showlegend=True,
+        height=500,
+        margin=dict(l=10, r=10, t=10, b=10),
+        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="rgba(0,0,0,0)",
         xaxis=dict(visible=False),
         yaxis=dict(visible=False),
-        showlegend=True
     )
 
-    st.plotly_chart(fig, use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+    fig.update_yaxes(scaleanchor="x", scaleratio=1)
 
+    st.plotly_chart(fig, width="stretch")
